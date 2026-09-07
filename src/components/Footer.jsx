@@ -1,8 +1,20 @@
 const socials = [
-  { label: "WhatsApp", src: "/src/assets/whatsapp.svg" },
-  { label: "X", src: "/src/assets/x.svg" },
-  { label: "LinkedIn", src: "/src/assets/linkedin.svg" },
-  { label: "Instagram", src: "/src/assets/instagram.svg" },
+  {
+    label: "WhatsApp",
+    href: "https://chat.whatsapp.com/ImZm8ywkATDFjTceZQHD2t?s=cl&p=i&mlu=4&ilr=4",
+    src: "/src/assets/whatsapp.svg",
+  },
+  { label: "X", href: "https://x.com/techspacecomm?s=11", src: "/src/assets/x.svg" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/thetechspace/",
+    src: "/src/assets/linkedin.svg",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/techspacecommunity_?igsi=MTJlOHpydGJ2ZXhicQ%3D%3D&utm_source=qr",
+    src: "/src/assets/instagram.svg",
+  },
 ];
 
 export default function Footer() {
@@ -18,7 +30,9 @@ export default function Footer() {
               {socials.map((s) => (
                 <a
                   key={s.label}
-                  href="#"
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label={s.label}
                   className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
