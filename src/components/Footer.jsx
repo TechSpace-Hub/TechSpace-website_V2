@@ -70,10 +70,22 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-white/70">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span>© 2026. TechSpace</span>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy &amp; Cookies policy</a>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <span>© 2026. TechSpace</span>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-white transition-colors">Privacy &amp; Cookies policy</a>
+            </div>
+
+            <div className="flex items-center gap-4 flex-wrap">
+              <span className="text-white/70 mr-2">Quick links:</span>
+              <a href="#about" className="hover:text-white transition-colors">About</a>
+              <a href="#services" className="hover:text-white transition-colors">Services</a>
+              <a href="#community" className="hover:text-white transition-colors">Community</a>
+              <a href="#events" className="hover:text-white transition-colors">Events</a>
+              <a href="#gallery" className="hover:text-white transition-colors">Gallery</a>
+              <a href="#faqs" className="hover:text-white transition-colors">FAQs</a>
+            </div>
           </div>
           <a href="mailto:hello@techspace.ng" className="hover:text-white transition-colors">
             hello@techspace.ng

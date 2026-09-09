@@ -2,14 +2,14 @@
 // Row 2's "left" and "middle" images are the same height as the
 // combined height of the two stacked images on the right.
 const photos = {
-  top: "REPLACE_WITH_MOMENT_IMAGE_1",
-  middleLeft: "REPLACE_WITH_MOMENT_IMAGE_2",
-  middleCenter: "REPLACE_WITH_MOMENT_IMAGE_3",
-  stackTop: "REPLACE_WITH_MOMENT_IMAGE_4",
-  stackBottom: "REPLACE_WITH_MOMENT_IMAGE_5",
-  bottomLeft: "REPLACE_WITH_MOMENT_IMAGE_6",
-  bottomCenter: "REPLACE_WITH_MOMENT_IMAGE_7",
-  bottomRight: "REPLACE_WITH_MOMENT_IMAGE_8", // wider than the other two in this row
+  top: new URL("../assets/talent.png", import.meta.url).href,
+  middleLeft: new URL("../assets/community-2.jpg", import.meta.url).href,
+  middleCenter: new URL("../assets/community-3.jpg", import.meta.url).href,
+  stackTop: new URL("../assets/community-4.jpg", import.meta.url).href,
+  stackBottom: new URL("../assets/community-5.jpg", import.meta.url).href,
+  bottomLeft: new URL("../assets/community-6.jpg", import.meta.url).href,
+  bottomCenter: new URL("../assets/community-7.jpg", import.meta.url).href,
+  bottomRight: new URL("../assets/hangout.jpg", import.meta.url).href, // wider than the other two in this row
 };
 
 function Photo({ src, className = "" }) {
@@ -23,7 +23,7 @@ function Photo({ src, className = "" }) {
 
 export default function Gallery() {
   return (
-    <section className="bg-[#fdf3f1] py-20 px-6">
+    <section id="gallery" className="bg-[#fdf3f1] py-20 px-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
         {/* Text block */}
         <div className="max-w-md shrink-0">
@@ -33,7 +33,7 @@ export default function Gallery() {
           <p className="text-ink-soft mt-4">
             A glimpse into our workshops, learning sessions, and community events.
           </p>
-          
+
           <a
             href="#gallery"
             className="inline-block mt-6 border border-accent text-accent text-sm font-medium rounded-full px-6 py-2.5 hover:bg-accent hover:text-white transition-colors"

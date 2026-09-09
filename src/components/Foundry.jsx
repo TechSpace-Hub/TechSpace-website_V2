@@ -1,6 +1,7 @@
 export default function Foundry() {
   return (
     <section
+      id="foundry"
       className="py-20 px-6"
       style={{
         backgroundImage:
@@ -21,8 +22,9 @@ export default function Foundry() {
         <div
           className="rounded-2xl aspect-video bg-cover bg-center relative overflow-hidden"
           style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200)",
+            backgroundImage: `url(${new URL('../assets/foundry.JPG', import.meta.url).href})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         >
           <div className="absolute inset-0 bg-black/20" />
@@ -34,11 +36,11 @@ export default function Foundry() {
               <span aria-hidden="true">✨</span> Connect with Founders
             </a>
           </div>
-          <img
-            src="/src/assets/ts-logo.png"
+          {/* <img
+            src={new URL('../assets/ts-logo.png', import.meta.url).href}
             alt="TechSpace"
             className="absolute left-1/2 bottom-6 -translate-x-1/2 h-30 w-auto"
-          />
+          /> */}
         </div>
       </div>
     </section>

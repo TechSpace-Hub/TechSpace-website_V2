@@ -39,7 +39,7 @@ export default function Events() {
   const next = () => setIndex((i) => (i === events.length - 1 ? 0 : i + 1));
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="events" className="bg-white py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="font-display font-bold text-3xl md:text-4xl">Past/Upcoming Events</h2>
         <p className="text-ink-soft mt-4">

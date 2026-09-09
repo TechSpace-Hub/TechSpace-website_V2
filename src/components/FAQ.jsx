@@ -27,7 +27,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="faqs" className="bg-white py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="font-display font-bold text-3xl md:text-4xl">Frequently asked questions</h2>
         <p className="text-ink-soft mt-3">We're happy to answer your questions</p>
@@ -45,9 +45,8 @@ export default function FAQ() {
               >
                 <span className="font-medium">{item.q}</span>
                 <span
-                  className={`shrink-0 w-9 h-9 rounded-full bg-surface flex items-center justify-center text-lg transition-transform ${
-                    isOpen ? "rotate-45" : ""
-                  }`}
+                  className={`shrink-0 w-9 h-9 rounded-full bg-surface flex items-center justify-center text-lg transition-transform ${isOpen ? "rotate-45" : ""
+                    }`}
                   aria-hidden="true"
                 >
                   +

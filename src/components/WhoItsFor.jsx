@@ -1,10 +1,14 @@
+const convImg = new URL("../assets/conversation.JPG", import.meta.url).href;
+const foundryImg = new URL("../assets/foundry.JPG", import.meta.url).href;
+const talentImg = new URL("../assets/talent.png", import.meta.url).href;
+
 const cards = [
   {
     eyebrow: "FOR PROFESSIONALS",
     title: "Build a career, not just a skillset.",
     description: "Ship work in public and plug into an ecosystem that opens doors.",
     cta: "Explore programs",
-    image: "https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=800",
+    image: convImg,
   },
   {
     eyebrow: "FOR FOUNDERS",
@@ -12,7 +16,7 @@ const cards = [
     description:
       "A vetted ecosystem where founders collaborate and grow alongside operators who have done it before.",
     cta: "Apply to the Foundry",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800",
+    image: foundryImg,
   },
   {
     eyebrow: "FOR BRANDS & PARTNERS",
@@ -20,13 +24,13 @@ const cards = [
     description:
       "We build, manage and deploy tech and creative talent into your teams. Tell us the shape of the role, we handle the rest.",
     cta: "Hire Talent",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800",
+    image: talentImg,
   },
 ];
 
 export default function WhoItsFor() {
   return (
-    <section className="bg-surface py-20 px-6">
+    <section id="about" className="bg-surface py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <span className="inline-block border border-accent text-accent text-xs tracking-wide rounded-full px-4 py-1.5 mb-5">
           WHO IT'S FOR
@@ -44,17 +48,19 @@ export default function WhoItsFor() {
         {cards.map((card) => (
           <div key={card.eyebrow} className="bg-white rounded-2xl p-6 flex flex-col">
             <span className="text-accent text-xs tracking-wide font-medium">{card.eyebrow}</span>
-            <h3 className="font-display font-semibold text-lg mt-3">{card.title}</h3>
-            <p className="text-ink-soft text-sm mt-2">{card.description}</p>
+            <div className="flex-1">
+              <h3 className="font-display font-semibold text-lg mt-3">{card.title}</h3>
+              <p className="text-ink-soft text-sm mt-2">{card.description}</p>
 
-            <div
-              className="mt-5 rounded-xl h-48 bg-cover bg-center"
-              style={{ backgroundImage: `url(${card.image})` }}
-            />
+              <div
+                className="mt-5 rounded-xl h-48 bg-cover bg-center"
+                style={{ backgroundImage: `url(${card.image})` }}
+              />
+            </div>
 
             <a
               href="#"
-              className="mt-4 text-sm font-medium inline-flex items-center gap-1.5 hover:text-accent transition-colors"
+              className="mt-auto text-sm font-medium inline-flex items-center gap-1.5 hover:text-accent transition-colors"
             >
               {card.cta} <span aria-hidden="true">→</span>
             </a>

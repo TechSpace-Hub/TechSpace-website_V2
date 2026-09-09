@@ -1,22 +1,34 @@
+import communityImg1 from "../assets/community-1.jpg";
+import communityImg2 from "../assets/community-2.jpg";
+import communityImg3 from "../assets/community-3.jpg";
+import communityImg4 from "../assets/community-4.jpg";
+import communityImg5 from "../assets/community-5.jpg";
+import communityImg6 from "../assets/community-6.jpg";
+import communityImg7 from "../assets/community-7.jpg";
+import communityImg8 from "../assets/community-8.jpg";
+import communityImg9 from "../assets/community-9.jpg";
+import communityImg10 from "../assets/community-10.jpg";
+import communityImg11 from "../assets/community-11.jpg";
+
 const bubbles = [
-  { left: 63.3, top: 8.7, size: 14.2, img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=200" },
-  { left: 27.8, top: 13.2, size: 9.5, img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200" },
-  { left: 67.7, top: 32.8, size: 9.5, img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200" },
-  { left: 10.8, top: 36.3, size: 11, img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200" },
-  { left: 42.7, top: 35.3, size: 11, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200" },
-  { left: 92, top: 55.5, size: 11, img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200" },
-  { left: 27.8, top: 68.3, size: 9.5, img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=200" },
-  { left: 61.5, top: 65.3, size: 9.5, img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=200" },
-  { left: 3.3, top: 78.2, size: 8, img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=200" },
-  { left: 92.7, top: 86.7, size: 8, img: "https://images.unsplash.com/photo-1521341957697-b93449760f30?q=80&w=200" },
-  { left: 37.8, top: 92.5, size: 14.2, img: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=200" },
+  { left: 35.2, top: 25.3, size: 9.5, img: communityImg1 },
+  { left: 58.9, top: 22.5, size: 14.2, img: communityImg2 },
+  { left: 23.9, top: 41.1, size: 9.5, img: communityImg3 },
+  { left: 43.6, top: 40.0, size: 11, img: communityImg4 },
+  { left: 61.5, top: 38.6, size: 9.5, img: communityImg5 },
+  { left: 78.1, top: 53.6, size: 11, img: communityImg6 },
+  { left: 35.2, top: 62.2, size: 9.5, img: communityImg7 },
+  { left: 57.6, top: 60.3, size: 9.5, img: communityImg8 },
+  { left: 18.9, top: 68.9, size: 8, img: communityImg9 },
+  { left: 41.8, top: 78.5, size: 14.2, img: communityImg10 },
+  { left: 78.6, top: 74.4, size: 8, img: communityImg11 },
 ];
 
 const rings = [18, 32, 46, 60, 74];
 
 export default function Community() {
   return (
-    <section className="bg-white py-20 px-6">
+    <section id="community" className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <span className="text-accent text-sm font-medium">Community &amp; Events</span>
@@ -27,13 +39,8 @@ export default function Community() {
             Beyond learning and hiring, TechSpace hosts tech events, networking sessions that
             creates space for connection.
           </p>
-          <a
-            href="#community"
-            className="inline-block mt-6 border border-accent text-accent text-sm font-medium rounded-full px-7 py-2.5 hover:bg-accent hover:text-white transition-colors"
-          >
-            Join Community
-          </a>
-        </div>
+
+          <a href="#community" className="inline-block mt-6 border border-accent text-accent text-sm font-medium rounded-full px-7 py-2.5 hover:bg-accent hover:text-white transition-colors">Join Community</a>        </div>
 
         <div className="relative aspect-square w-full max-w-[560px] mx-auto">
           {rings.map((r) => (
@@ -60,7 +67,7 @@ export default function Community() {
           {bubbles.map((b, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-cover bg-center border-2 border-white shadow-md"
+              className="absolute rounded-full bg-cover bg-center bg-gray-200 border-2 border-white shadow-md"
               style={{
                 width: `${b.size}%`,
                 height: `${b.size}%`,

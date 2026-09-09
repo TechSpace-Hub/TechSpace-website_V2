@@ -6,9 +6,11 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        {/* REPLACE_WITH_HERO_TABLE_IMAGE — the "video-like" motion comes from the
-            .hero-orbit CSS animation in index.css, not an actual video file */}
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600')] bg-cover bg-center hero-orbit" />
+        {/* Hero background uses the foundry image from assets */}
+        <div
+          className="w-full h-full bg-cover bg-center hero-orbit"
+          style={{ backgroundImage: `url(${new URL('../assets/foundry.JPG', import.meta.url).href})` }}
+        />
         <div className="absolute inset-0 bg-black/55" />
       </div>
 

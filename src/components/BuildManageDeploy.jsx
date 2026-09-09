@@ -51,7 +51,7 @@ export default function BuildManageDeploy() {
   const tone = slideStyles[active];
 
   return (
-    <section className="relative bg-white py-20 px-6 overflow-hidden">
+    <section id="services" className="relative bg-white py-20 px-6 overflow-hidden">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <span className="inline-block border border-accent text-accent text-xs tracking-wide rounded-full px-4 py-1.5 mb-5">
           WHAT WE DO
