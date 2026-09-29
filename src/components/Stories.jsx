@@ -18,7 +18,7 @@ export default function Stories() {
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display font-bold text-3xl md:text-4xl">Stories From Within</h2>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-accent">Stories From Within</h2>
         <p className="text-ink-soft mt-4">
           Real stories and experiences from people building, learning and growing within
           thetechspace.
@@ -54,9 +54,8 @@ export default function Stories() {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={`Show story ${i + 1}`}
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                i === index ? "bg-accent" : "bg-gray-300"
-              }`}
+              className={`w-2.5 h-2.5 rounded-full transition-colors ${i === index ? "bg-accent" : "bg-gray-300"
+                }`}
             />
           ))}
         </div>

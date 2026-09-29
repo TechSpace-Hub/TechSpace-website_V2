@@ -5,8 +5,9 @@
   --font-display: "Poppins", sans-serif;
   --font-body: "Inter", sans-serif;
 
-  --color-accent: #b5473e;
-  --color-accent-dark: #9c3c34;
+  /* match Navbar login button (dull red) */
+  --color-accent: #c6382f;
+  --color-accent-dark: #ad2f27;
   --color-ink: #262626;
   --color-ink-soft: #5c5c5c;
   --color-panel: #756f76;
@@ -25,18 +26,36 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4, .font-display {
+h1,
+h2,
+h3,
+h4,
+.font-display {
   font-family: var(--font-display);
 }
 
 /* Simulates a slow-orbiting camera on a still photo — zooms + drifts in a
    circular path so a static image reads as ambient video motion. */
 @keyframes hero-orbit {
-  0%   { transform: scale(1.12) translate(0%, 0%); }
-  25%  { transform: scale(1.18) translate(-2%, -1.5%); }
-  50%  { transform: scale(1.24) translate(0%, -3%); }
-  75%  { transform: scale(1.18) translate(2%, -1.5%); }
-  100% { transform: scale(1.12) translate(0%, 0%); }
+  0% {
+    transform: scale(1.12) translate(0%, 0%);
+  }
+
+  25% {
+    transform: scale(1.18) translate(-2%, -1.5%);
+  }
+
+  50% {
+    transform: scale(1.24) translate(0%, -3%);
+  }
+
+  75% {
+    transform: scale(1.18) translate(2%, -1.5%);
+  }
+
+  100% {
+    transform: scale(1.12) translate(0%, 0%);
+  }
 }
 
 .hero-orbit {
@@ -49,4 +68,100 @@ h1, h2, h3, h4, .font-display {
   .hero-orbit {
     animation: none;
   }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise-1 {
+  animation: rise-in 0.5s ease-out both;
+}
+
+.animate-rise-2 {
+  animation: rise-in 0.5s ease-out 0.15s both;
+}
+
+.animate-rise-3 {
+  animation: rise-in 0.5s ease-out 0.3s both;
+}
+
+@keyframes card-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-up {
+  animation: card-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes nudge-right {
+
+  0%,
+  85%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  92% {
+    transform: translateY(-50%) translateX(4px);
+  }
+}
+
+.animate-nudge-right {
+  animation: nudge-right 2.5s ease-in-out infinite;
+}
+
+/* Community orbit animation: rotates the ring of bubbles while keeping each bubble upright */
+@keyframes community-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes community-counter-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.community-orbit {
+  transform-origin: center center;
+  animation: community-rotate 40s linear infinite;
+}
+
+.community-orbit:hover {
+  animation-play-state: paused;
+}
+
+.community-orbit .bubble {
+  transform-origin: center center;
+  animation: community-counter-rotate 40s linear infinite;
+}
+
+.community-orbit .bubble:hover {
+  animation-play-state: paused;
 }

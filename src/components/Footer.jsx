@@ -87,8 +87,8 @@ export default function Footer() {
               <a href="#faqs" className="hover:text-white transition-colors">FAQs</a>
             </div>
           </div>
-          <a href="mailto:hello@techspace.ng" className="hover:text-white transition-colors">
-            hello@techspace.ng
+          <a href="mailto:info@thetechspaceltd.com" className="hover:text-white transition-colors">
+            info@thetechspaceltd.com
           </a>
         </div>
       </div>

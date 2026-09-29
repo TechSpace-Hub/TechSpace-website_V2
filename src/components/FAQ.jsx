@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How can I partner or collaborate with TechSpace?",
-    a: "Reach out via hello@techspace.ng with a short note about what you have in mind — we review every partnership request personally.",
+    a: "Reach out via info@thetechspaceltd.com with a short note about what you have in mind, we review every partnership request personally.",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function FAQ() {
   return (
     <section id="faqs" className="bg-white py-20 px-6">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display font-bold text-3xl md:text-4xl">Frequently asked questions</h2>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-accent">Frequently asked questions</h2>
         <p className="text-ink-soft mt-3">We're happy to answer your questions</p>
       </div>
 

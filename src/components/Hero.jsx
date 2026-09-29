@@ -1,6 +1,12 @@
 import Navbar from "./Navbar";
+import foundryImg from "../assets/foundry.jpeg";
 
-const trustedBy = ["Google Cloud", "AWS", "Loom", "Discord"];
+const trustedBy = [
+  { name: "Google Cloud" },
+  { name: "AWS" },
+  { name: "Discord" },
+  { name: "GitHub" },
+];
 
 export default function Hero() {
   return (
@@ -9,21 +15,22 @@ export default function Hero() {
         {/* Hero background uses the foundry image from assets */}
         <div
           className="w-full h-full bg-cover bg-center hero-orbit"
-          style={{ backgroundImage: `url(${new URL('../assets/foundry.JPG', import.meta.url).href})` }}
+          style={{ backgroundImage: `url(${foundryImg})` }}
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <Navbar />
 
       <div className="relative max-w-4xl mx-auto text-center px-6 pt-40 pb-16 md:pt-52 md:pb-24">
         <h1 className="font-display font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight">
-          Where talent is <span className="text-accent">built</span> and
-          <br />
-          <em className="font-display italic">deployed into opportunities.</em>
+          We're <span className="text-accent">talents</span> and{" "}
+          <span className="text-accent">organizations</span> building the future of{" "}
+          <span className="text-accent">TECH</span> connect
         </h1>
         <p className="text-white/85 mt-5 text-base md:text-lg">
-          TechSpace connects learners, hiring partners &amp; collaborators in one platform.
+          TechSpace is where tech comes to life, connecting tech talents, hiring partners &amp;
+          collaborators to build, collaborate, and discover opportunities.
         </p>
 
         <form className="mt-8 max-w-xl mx-auto">
@@ -46,13 +53,13 @@ export default function Hero() {
         <div className="mt-14">
           <p className="text-white/70 text-sm mb-4">Trusted by:</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {trustedBy.map((name) => (
-              <span
-                key={name}
-                className="bg-white text-ink text-sm font-medium rounded-full px-5 py-2"
+            {trustedBy.map((item) => (
+              <div
+                key={item.name}
+                className="bg-white rounded-full px-5 py-2.5 flex items-center justify-center"
               >
-                {name}
-              </span>
+                <span className="text-sm font-medium text-ink">{item.name}</span>
+              </div>
             ))}
           </div>
         </div>

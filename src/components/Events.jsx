@@ -41,7 +41,7 @@ export default function Events() {
   return (
     <section id="events" className="bg-white py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="font-display font-bold text-3xl md:text-4xl">Past/Upcoming Events</h2>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-accent">Past/Upcoming Events</h2>
         <p className="text-ink-soft mt-4">
           Our events are where learning meets laughter, and strangers become family.
         </p>

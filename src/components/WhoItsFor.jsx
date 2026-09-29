@@ -1,6 +1,7 @@
-const convImg = new URL("../assets/conversation.JPG", import.meta.url).href;
-const foundryImg = new URL("../assets/foundry.JPG", import.meta.url).href;
-const talentImg = new URL("../assets/talent.png", import.meta.url).href;
+const convImg = new URL("../assets/conversation.jpeg", import.meta.url).href;
+const foundryImg = new URL("../assets/foundry.jpeg", import.meta.url).href;
+const talentImg = new URL("../assets/talent.jpeg", import.meta.url).href;
+const drfreshImg = new URL("../assets/drfreshconv.jpeg", import.meta.url).href;
 
 const cards = [
   {
@@ -36,7 +37,7 @@ export default function WhoItsFor() {
           WHO IT'S FOR
         </span>
         <h2 className="font-display font-bold text-3xl md:text-4xl">
-          Different people, different doors.
+          Different <span className="text-accent">people</span>, different <span className="text-accent">doors</span>.
         </h2>
         <p className="text-ink-soft mt-4">
           You shouldn't have to decode a homepage to find your path.
@@ -53,7 +54,7 @@ export default function WhoItsFor() {
               <p className="text-ink-soft text-sm mt-2">{card.description}</p>
 
               <div
-                className="mt-5 rounded-xl h-48 bg-cover bg-center"
+                className="mt-5 mb-6 md:mb-8 rounded-xl h-48 bg-cover bg-center"
                 style={{ backgroundImage: `url(${card.image})` }}
               />
             </div>

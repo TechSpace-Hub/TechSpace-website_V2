@@ -12,7 +12,7 @@ export default function Foundry() {
       }}
     >
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-display font-bold text-3xl md:text-4xl">TheTechSpace Foundry</h2>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-accent">TheTechSpace Foundry</h2>
         <p className="text-ink-soft mt-3">
           A space where founders connect, share ideas and grow together.
         </p>
@@ -22,7 +22,7 @@ export default function Foundry() {
         <div
           className="rounded-2xl aspect-video bg-cover bg-center relative overflow-hidden"
           style={{
-            backgroundImage: `url(${new URL('../assets/foundry.JPG', import.meta.url).href})`,
+            backgroundImage: `url(${new URL('../assets/foundry.jpeg', import.meta.url).href})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
