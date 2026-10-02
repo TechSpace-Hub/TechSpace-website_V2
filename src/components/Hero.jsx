@@ -1,5 +1,9 @@
+import { useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
-import foundryImg from "../assets/foundry.jpeg";
+import { useInView } from "../hooks/useInView";
+import submitLead from "../utils/submitLead";
+import heroVideo from "../assets/techspace-hero.mp4";
+import heroPoster from "../assets/techspace-poster.webp";
 
 const trustedBy = [
   { name: "Google Cloud" },
@@ -9,13 +13,49 @@ const trustedBy = [
 ];
 
 export default function Hero() {
+  const [heroRef, heroInView] = useInView("0px");
+  const videoRef = useRef(null);
+  const [email, setEmail] = useState("");
+  const [leadStatus, setLeadStatus] = useState("idle"); // idle | loading | success | error
+  const [leadMessage, setLeadMessage] = useState("");
+
+  // Play the background loop only while the hero is visible.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (heroInView) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [heroInView]);
+
+  const handleLeadSubmit = async (event) => {
+    event.preventDefault();
+    if (leadStatus === "loading") return;
+    setLeadStatus("loading");
+    setLeadMessage("");
+    const result = await submitLead({ email });
+    setLeadStatus(result.success ? "success" : "error");
+    setLeadMessage(result.message);
+    if (result.success) setEmail("");
+  };
+
   return (
-    <section className="relative overflow-hidden">
+    <section ref={heroRef} className="relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        {/* Hero background uses the foundry image from assets */}
-        <div
-          className="w-full h-full bg-cover bg-center hero-orbit"
-          style={{ backgroundImage: `url(${foundryImg})` }}
+        {/* Hero background: compressed 960x540 loop (no audio) with a WebP poster fallback */}
+        <video
+          ref={videoRef}
+          src={heroVideo}
+          poster={heroPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -33,21 +73,33 @@ export default function Hero() {
           collaborators to build, collaborate, and discover opportunities.
         </p>
 
-        <form className="mt-8 max-w-xl mx-auto">
+        <form className="mt-8 max-w-xl mx-auto" onSubmit={handleLeadSubmit}>
           <div className="relative flex items-center">
             <input
               type="email"
               required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="Your Email"
               className="w-full bg-black/40 border border-white/30 text-white placeholder:text-white/60 rounded-full px-6 py-3.5 pr-40 outline-none focus:border-white/70"
             />
             <button
               type="submit"
-              className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-ink font-medium rounded-full px-7 py-2.5 hover:bg-white/90 transition-colors"
+              disabled={leadStatus === "loading"}
+              className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-ink font-medium rounded-full px-7 py-2.5 hover:bg-white/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Get Started
+              {leadStatus === "loading" ? "Sending..." : "Get Started"}
             </button>
           </div>
+          {leadMessage && (
+            <p
+              className={`mt-3 text-sm ${
+                leadStatus === "success" ? "text-emerald-300" : "text-red-300"
+              }`}
+            >
+              {leadMessage}
+            </p>
+          )}
         </form>
 
         <div className="mt-14 hidden sm:block">

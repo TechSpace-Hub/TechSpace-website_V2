@@ -19,14 +19,14 @@ export default function Foundry() {
       </div>
 
       <div className="max-w-3xl mx-auto mt-10 relative">
-        <div
-          className="rounded-2xl aspect-video bg-cover bg-center relative overflow-hidden"
-          style={{
-            backgroundImage: `url(${new URL('../assets/foundry.jpeg', import.meta.url).href})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+        <div className="rounded-2xl aspect-video relative overflow-hidden">
+          <img
+            src={new URL("../assets/foundry.webp", import.meta.url).href}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/20" />
           <div className="absolute inset-0 flex items-center justify-center">
             <a
@@ -37,7 +37,7 @@ export default function Foundry() {
             </a>
           </div>
           {/* <img
-            src={new URL('../assets/ts-logo.png', import.meta.url).href}
+            src={new URL('../assets/ts-logo.webp', import.meta.url).href}
             alt="TechSpace"
             className="absolute left-1/2 bottom-6 -translate-x-1/2 h-30 w-auto"
           /> */}

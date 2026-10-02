@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
+    "images:webp": "node scripts/convert-to-webp.mjs",
+    "video:compress": "swift scripts/compress-video.swift",
+    "mock:api": "node scripts/mock-api.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import communityImg from "../assets/community8.jpeg";
+import { useInView } from "../hooks/useInView";
+import communityImg from "../assets/community8.webp";
+import manageImg from "../assets/community6.webp";
+import deployImg from "../assets/deploy.webp";
 
 const slides = [
   {
@@ -9,6 +12,7 @@ const slides = [
     // icon: "🛠️",
     description:
       "Structured programs and cohorts that turn capable people into deployable professionals across engineering, design and product.",
+    image: communityImg,
   },
   {
     number: "02",
@@ -17,6 +21,7 @@ const slides = [
     // icon: "🧭",
     description:
       "Ongoing support and community infrastructure that keeps talent sharp, connected, and accountable as they grow.",
+    image: manageImg,
   },
   {
     number: "03",
@@ -25,10 +30,11 @@ const slides = [
     // icon: "🚀",
     description:
       "We match vetted talent with hiring partners and brands who need skilled people ready to contribute from day one.",
+    image: deployImg,
   },
 ];
 
-const AUTO_ADVANCE_MS = 5000;
+const AUTO_ADVANCE_MS = 1000;
 
 function SlideCard({ slide }) {
   return (
@@ -75,6 +81,7 @@ export default function BuildManageDeploy() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
+  const [sectionRef, inView] = useInView();
 
   const prevIndex = active === 0 ? slides.length - 1 : active - 1;
 
@@ -83,15 +90,16 @@ export default function BuildManageDeploy() {
   const prev = () => goTo(active - 1);
 
   useEffect(() => {
-    if (paused) return undefined;
+    // Skip auto-advance while hovered or while the section is offscreen.
+    if (paused || !inView) return undefined;
     timerRef.current = setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
     }, AUTO_ADVANCE_MS);
     return () => clearInterval(timerRef.current);
-  }, [paused, active]);
+  }, [paused, active, inView]);
 
   return (
-    <section className="relative bg-white py-20 px-6 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-white py-20 px-6 overflow-hidden">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <span className="inline-block border border-accent text-accent text-xs tracking-wide rounded-full px-4 py-1.5 mb-5">
           WHAT WE DO
@@ -108,7 +116,7 @@ export default function BuildManageDeploy() {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div className="relative h-[440px] flex items-center justify-center">
+        <div className="relative h-[480px] flex items-center justify-center">
           <div
             aria-hidden="true"
             className="pointer-events-none select-none absolute left-[-70px] md:left-[-110px] top-1/2 -translate-y-1/2 text-[130px] md:text-[190px] leading-none text-accent/[0.16] rotate-[-25deg] z-0"
@@ -125,28 +133,34 @@ export default function BuildManageDeploy() {
 
           <div
             aria-hidden="true"
-            className="absolute w-full max-w-2xl h-[380px] rounded-[2.5rem] scale-95 translate-y-4 z-[5] overflow-hidden"
+            className="absolute w-full max-w-3xl h-[420px] rounded-[2.5rem] scale-95 translate-y-4 z-[5] overflow-hidden"
           >
-            <div
+            <img
               aria-hidden="true"
-              className="absolute inset-0 bg-cover bg-center scale-105"
-              style={{ backgroundImage: `url(${communityImg})` }}
+              src={slides[prevIndex].image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
             />
-            <div aria-hidden="true" className="absolute inset-0 bg-black/70" />
+            <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
             <div className="p-8 md:p-10 h-full relative z-10">
               <SlideCard slide={slides[prevIndex]} />
             </div>
           </div>
 
-          <div key={active} className="relative w-full max-w-2xl z-10 animate-card-up">
+          <div key={active} className="relative w-full max-w-3xl z-10 animate-card-up">
             <div className="p-2 sm:p-3 bg-gradient-to-br from-white/25 via-white/10 to-transparent rounded-[2.75rem] shadow-2xl">
-              <div className="relative rounded-[2.25rem] px-8 py-10 md:px-12 md:py-14 h-[360px] ring-1 ring-white/10 overflow-hidden shadow-xl">
-                <div
+              <div className="relative rounded-[2.25rem] px-8 py-10 md:px-12 md:py-14 h-[400px] ring-1 ring-white/10 overflow-hidden shadow-xl">
+                <img
                   aria-hidden="true"
-                  className="absolute inset-0 bg-cover bg-center scale-105"
-                  style={{ backgroundImage: `url(${communityImg})` }}
+                  src={slides[active].image}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover scale-105"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-black/70" />
+                <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
                 <div className="relative z-10 h-full">
                   <SlideCard slide={slides[active]} />
                 </div>

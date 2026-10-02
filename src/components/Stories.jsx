@@ -1,10 +1,10 @@
 import { useState } from "react";
-import victorImg from "../assets/victor.jpeg";
-import babzImg from "../assets/babz.jpeg";
-import faithImg from "../assets/faith.jpeg";
-import mavenImg from "../assets/maven.jpeg";
-import kokoImg from "../assets/koko.jpeg";
-import sandraImg from "../assets/sandra.jpeg";
+import victorImg from "../assets/victor.webp";
+import babzImg from "../assets/babz.webp";
+import faithImg from "../assets/faith.webp";
+import mavenImg from "../assets/maven.webp";
+import kokoImg from "../assets/koko.webp";
+import sandraImg from "../assets/sandra.webp";
 
 const stories = [victorImg, babzImg, faithImg, mavenImg, kokoImg, sandraImg];
 
@@ -28,20 +28,22 @@ export default function Stories() {
         <img
           src={stories[index]}
           alt={`Story ${index + 1}`}
+          loading="lazy"
+          decoding="async"
           className="w-full rounded-2xl bg-gray-100"
         />
 
         <button
           onClick={prev}
           aria-label="Previous story"
-          className="hidden sm:flex items-center justify-center absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 text-2xl text-ink-soft hover:text-accent transition-colors"
+          className="flex items-center justify-center absolute -left-3 sm:-left-14 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 text-2xl leading-none rounded-full sm:rounded-none bg-white/85 sm:bg-transparent shadow-sm sm:shadow-none backdrop-blur-[2px] sm:backdrop-blur-none text-ink-soft hover:text-accent transition-colors z-10"
         >
           ‹
         </button>
         <button
           onClick={next}
           aria-label="Next story"
-          className="hidden sm:flex items-center justify-center absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 text-2xl text-ink-soft hover:text-accent transition-colors"
+          className="flex items-center justify-center absolute -right-3 sm:-right-14 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 text-2xl leading-none rounded-full sm:rounded-none bg-white/85 sm:bg-transparent shadow-sm sm:shadow-none backdrop-blur-[2px] sm:backdrop-blur-none text-ink-soft hover:text-accent transition-colors z-10"
         >
           ›
         </button>

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import indoorPicnicImg from "../assets/indoor-picnic.jpeg";
-import familyReunionBeachImg from "../assets/family-reunion-beach.jpeg";
-import familyReunion2Img from "../assets/family-reunion2.0.jpeg";
-import theConversationImg from "../assets/the-conversation.jpeg";
+import indoorPicnicImg from "../assets/indoor-picnic.webp";
+import familyReunionBeachImg from "../assets/family-reunion-beach.webp";
+import familyReunion2Img from "../assets/family-reunion2.0.webp";
+import theConversationImg from "../assets/the-conversation.webp";
 
 const events = [
   {
@@ -53,14 +53,17 @@ export default function Events() {
 
       <div className="max-w-5xl mx-auto mt-12 relative">
         <div className="flex flex-col md:flex-row gap-5 items-stretch md:min-h-[390px]">
-          <div
-            className="w-full md:w-[48%] rounded-2xl bg-cover bg-center bg-gray-200 overflow-hidden"
-            style={{ backgroundImage: `url(${event.image})`, minHeight: "390px", backgroundSize: "cover" }}
+          <img
+            src={event.image}
+            alt={event.title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-[390px] md:h-auto md:w-[48%] rounded-2xl object-cover bg-gray-200"
           />
-          <div className="w-full md:w-[52%] bg-surface rounded-2xl p-7 md:p-8 flex flex-col justify-center">
+          <div className="w-full md:w-[52%] bg-surface rounded-2xl p-7 md:p-8 flex flex-col justify-center text-center md:text-left">
             <h3 className="font-display font-semibold text-xl md:text-2xl">{event.title}</h3>
             <p className="text-ink-soft mt-3 text-sm md:text-base leading-relaxed">{event.description}</p>
-            <p className="text-ink-soft mt-5 flex items-center gap-2 text-xs md:text-sm font-medium">
+            <p className="text-ink-soft mt-5 flex items-center justify-center md:justify-start gap-2 text-xs md:text-sm font-medium">
               <span aria-hidden="true">📅</span> {event.date}
             </p>
           </div>
@@ -69,14 +72,14 @@ export default function Events() {
         <button
           onClick={prev}
           aria-label="Previous event"
-          className="hidden md:flex items-center justify-center absolute -left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+          className="flex items-center justify-center absolute -left-2 md:-left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
         >
           ←
         </button>
         <button
           onClick={next}
           aria-label="Next event"
-          className="hidden md:flex items-center justify-center absolute -right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
+          className="flex items-center justify-center absolute -right-2 md:-right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
         >
           →
         </button>

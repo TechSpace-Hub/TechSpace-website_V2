@@ -1,14 +1,17 @@
-import communityImg1 from "../assets/community1.jpeg";
-import communityImg2 from "../assets/community2.jpeg";
-import communityImg3 from "../assets/community3.jpeg";
-import communityImg4 from "../assets/community4.jpeg";
-import communityImg5 from "../assets/community5.jpeg";
-import communityImg6 from "../assets/community6.jpeg";
-import communityImg7 from "../assets/community7.jpeg";
-import communityImg8 from "../assets/community8.jpeg";
-import communityImg9 from "../assets/community9.jpeg";
-import communityImg10 from "../assets/community10.jpeg";
-import communityImg11 from "../assets/community11.jpeg";
+import { useState } from "react";
+import { useInView } from "../hooks/useInView";
+import JoinCommunityModal from "./JoinCommunityModal";
+import communityImg1 from "../assets/community1.webp";
+import communityImg2 from "../assets/community2.webp";
+import communityImg3 from "../assets/community3.webp";
+import communityImg4 from "../assets/community4.webp";
+import communityImg5 from "../assets/community5.webp";
+import communityImg6 from "../assets/community6.webp";
+import communityImg7 from "../assets/community7.webp";
+import communityImg8 from "../assets/community8.webp";
+import communityImg9 from "../assets/community9.webp";
+import communityImg10 from "../assets/community10.webp";
+import communityImg11 from "../assets/community11.webp";
 
 const bubbles = [
   { left: 15.2, top: 20.3, size: 12.5, img: communityImg1 },
@@ -27,23 +30,36 @@ const bubbles = [
 const rings = [18, 32, 46, 60, 74];
 
 export default function Community() {
+  const [orbitRef, orbitInView] = useInView();
+  const [joinOpen, setJoinOpen] = useState(false);
+
   return (
-    <section id="community" className="bg-white py-20 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
+    <section id="community" className="bg-white py-20 px-6 overflow-hidden">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[2fr_3fr] lg:grid-cols-[3fr_7fr] gap-10 lg:gap-12 items-center">
+        <div className="text-center md:text-left">
           <span className="text-accent text-sm font-medium">Community &amp; Events</span>
           <h2 className="font-display font-bold text-3xl md:text-4xl mt-3">
             Serious <span className="text-accent">Growth</span>. Real <span className="text-accent">Connections</span>.
           </h2>
-          <p className="text-ink-soft mt-4 max-w-md">
+          <p className="text-ink-soft mt-4 max-w-md mx-auto md:mx-0">
             Beyond learning and hiring, TechSpace hosts tech events, networking sessions that
             creates space for connection.
           </p>
 
-          <a href="#community" className="inline-block mt-6 border border-accent text-accent text-sm font-medium rounded-full px-7 py-2.5 hover:bg-accent hover:text-white transition-colors">Join Community</a>
+          <button
+            type="button"
+            onClick={() => setJoinOpen(true)}
+            className="inline-block mt-6 border border-accent text-accent text-sm font-medium rounded-full px-7 py-2.5 hover:bg-accent hover:text-white transition-colors"
+          >
+            Join Community
+          </button>
         </div>
 
-        <div className="relative aspect-square w-full max-w-[560px] mx-auto community-orbit">
+        <div
+          ref={orbitRef}
+          data-paused={!orbitInView}
+          className="relative aspect-square w-full max-w-[720px] mx-auto community-orbit"
+        >
           {rings.map((r) => (
             <div
               key={r}
@@ -66,20 +82,25 @@ export default function Community() {
           </div>
 
           {bubbles.map((b, i) => (
-            <div
+            <img
               key={i}
-              className="absolute rounded-full bg-cover bg-center bg-gray-200 border-2 border-white shadow-md bubble will-change-transform"
+              src={b.img}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute rounded-full object-cover bg-gray-200 border-2 border-white shadow-md bubble"
               style={{
                 width: `${b.size}%`,
                 height: `${b.size}%`,
                 left: `${b.left}%`,
                 top: `${b.top}%`,
-                backgroundImage: `url(${b.img})`,
               }}
             />
           ))}
         </div>
       </div>
+
+      {joinOpen && <JoinCommunityModal onClose={() => setJoinOpen(false)} />}
     </section>
   );
 }

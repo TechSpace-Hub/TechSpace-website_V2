@@ -8,18 +8,8 @@ import Stories from "../components/Stories";
 import Foundry from "../components/Foundry";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
-import { useEffect } from "react";
-import { preloadImages } from "../utils/preloadImages";
-
-
 
 export default function LandingPage() {
-  useEffect(() => {
-    const run = () => preloadImages();
-    if ("requestIdleCallback" in window) requestIdleCallback(run);
-    else setTimeout(run, 500);
-  }, []);
-
   return (
     <>
       <Hero />
