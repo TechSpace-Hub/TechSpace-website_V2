@@ -1,19 +1,24 @@
+import whatsappIcon from "../assets/whatsapp.svg";
+import xIcon from "../assets/x.svg";
+import linkedinIcon from "../assets/linkedin.svg";
+import instagramIcon from "../assets/instagram.svg";
+
 const socials = [
   {
     label: "WhatsApp",
     href: "https://chat.whatsapp.com/ImZm8ywkATDFjTceZQHD2t?s=cl&p=i&mlu=4&ilr=4",
-    src: "/src/assets/whatsapp.svg",
+    src: whatsappIcon,
   },
-  { label: "X", href: "https://x.com/techspacecomm?s=11", src: "/src/assets/x.svg" },
+  { label: "X", href: "https://x.com/techspacecomm?s=11", src: xIcon },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/thetechspace/",
-    src: "/src/assets/linkedin.svg",
+    src: linkedinIcon,
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/techspacecommunity_?igsi=MTJlOHpydGJ2ZXhicQ%3D%3D&utm_source=qr",
-    src: "/src/assets/instagram.svg",
+    src: instagramIcon,
   },
 ];
 

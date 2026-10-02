@@ -1,4 +1,8 @@
 import { useState } from "react";
+import indoorPicnicImg from "../assets/indoor-picnic.jpeg";
+import familyReunionBeachImg from "../assets/family-reunion-beach.jpeg";
+import familyReunion2Img from "../assets/family-reunion2.0.jpeg";
+import theConversationImg from "../assets/the-conversation.jpeg";
 
 const events = [
   {
@@ -6,28 +10,28 @@ const events = [
     description:
       "An intimate and wholesome community experience by The Tech Space, bringing together techies, creatives, developers, writers, and more. Beyond networking, it was about building trust, chemistry, genuine connections, and community.",
     date: "August 17th, 2025",
-    image: "/src/assets/indoor-picnic.jpeg",
+    image: indoorPicnicImg,
   },
   {
     title: "The Family Reunion – Beach Edition",
     description:
-      "A relaxed community experience that brought together tech enthusiasts, designers, developers, founders, and creatives for a day of games, connection, collaboration, and fun by the beach.",
+      "A relaxed community experience that brought together tech enthusiasts, designers, developers, founders, and creatives for a day ofgames, connection, collaboration, and fun by the beach.",
     date: "Nov 22nd, 2025",
-    image: "/src/assets/family-reunion-beach.jpeg",
+    image: familyReunionBeachImg,
   },
   {
     title: "The Family Reunion 2.0",
     description:
       "A cross-border community experience that took The Tech Space beyond Nigeria to the Benin Republic. More than a trip, it was a celebration of our journey, our people, cultural and business exchange, and the power of community to create meaningful connections beyond borders.",
     date: "March 31st, 2026",
-    image: "/src/assets/family-reunion2.0.jpeg",
+    image: familyReunion2Img,
   },
   {
     title: "The Conversation",
     description:
       "An intimate black-tie dinner by The Tech Space centred around meaningful conversations on purpose, leadership, careers, and personal growth. An evening to connect, reflect, and build relationships beyond the usual networking.",
     date: "July 25th, 2026",
-    image: "/src/assets/the-conversation.jpeg",
+    image: theConversationImg,
   },
 ];
 

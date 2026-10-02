@@ -50,9 +50,9 @@ export default function Hero() {
           </div>
         </form>
 
-        <div className="mt-14">
-          <p className="text-white/70 text-sm mb-4">Trusted by:</p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-14 hidden sm:block">
+  <p className="text-white/70 text-sm mb-4">Trusted by:</p>
+  <div className="flex flex-wrap items-center justify-center gap-3">
             {trustedBy.map((item) => (
               <div
                 key={item.name}

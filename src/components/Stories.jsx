@@ -1,13 +1,12 @@
 import { useState } from "react";
+import victorImg from "../assets/victor.jpeg";
+import babzImg from "../assets/babz.jpeg";
+import faithImg from "../assets/faith.jpeg";
+import mavenImg from "../assets/maven.jpeg";
+import kokoImg from "../assets/koko.jpeg";
+import sandraImg from "../assets/sandra.jpeg";
 
-const stories = [
-  "/src/assets/victor.jpeg",
-  "/src/assets/babz.jpeg",
-  "/src/assets/faith.jpeg",
-  "/src/assets/maven.jpeg",
-  "/src/assets/koko.jpeg",
-  "/src/assets/sandra.jpeg",
-];
+const stories = [victorImg, babzImg, faithImg, mavenImg, kokoImg, sandraImg];
 
 export default function Stories() {
   const [index, setIndex] = useState(0);
@@ -26,7 +25,6 @@ export default function Stories() {
       </div>
 
       <div className="max-w-lg mx-auto mt-12 relative">
-        {/* Drop each finished graphic (photo + quote already designed) in as the image src below */}
         <img
           src={stories[index]}
           alt={`Story ${index + 1}`}
