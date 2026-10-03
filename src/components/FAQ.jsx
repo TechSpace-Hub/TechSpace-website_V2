@@ -3,7 +3,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Who can join Tech Space?",
-    a: "Anyone building a career in tech or creative fields — professionals, founders, and students can apply to join the community.",
+    a: "Anyone building a career in tech or creative fields, professionals, founders, and students can apply to join the community.",
   },
   {
     q: "How can companies hire talent from TechSpace?",
