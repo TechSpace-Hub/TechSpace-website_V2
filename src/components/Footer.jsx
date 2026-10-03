@@ -8,7 +8,7 @@ import instagramIcon from "../assets/instagram.svg";
 const socials = [
   {
     label: "WhatsApp",
-    href: "https://chat.whatsapp.com/ImZm8ywkATDFjTceZQHD2t?s=cl&p=i&mlu=4&ilr=4",
+    href: "https://wa.me/qr/INVHF3KI3RDCO1",
     src: whatsappIcon,
   },
   { label: "X", href: "https://x.com/techspacecomm?s=11", src: xIcon },

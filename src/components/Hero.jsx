@@ -64,7 +64,7 @@ export default function Hero() {
 
       <div className="relative max-w-4xl mx-auto text-center px-6 pt-40 pb-16 md:pt-52 md:pb-24">
         <h1 className="font-display font-bold text-white text-3xl sm:text-4xl md:text-5xl leading-tight">
-          We're <span className="text-accent">talents</span> and{" "}
+          Where <span className="text-accent">talents</span> and{" "}
           <span className="text-accent">organizations</span> building the future of{" "}
           <span className="text-accent">TECH</span> connect
         </h1>
@@ -86,7 +86,7 @@ export default function Hero() {
             <button
               type="submit"
               disabled={leadStatus === "loading"}
-              className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-ink font-medium rounded-full px-7 py-2.5 hover:bg-white/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-ink font-medium rounded-lg px-7 py-2.5 hover:bg-white/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {leadStatus === "loading" ? "Sending..." : "Get Started"}
             </button>

@@ -1,3 +1,6 @@
+import { useState } from "react";
+import JoinCommunityModal from "./JoinCommunityModal";
+
 const convImg = new URL("../assets/conversation.webp", import.meta.url).href;
 const foundryImg = new URL("../assets/foundry.webp", import.meta.url).href;
 const talentImg = new URL("../assets/drfreshconv.webp", import.meta.url).href;
@@ -30,11 +33,13 @@ const cards = [
 ];
 
 export default function WhoItsFor() {
+  const [joinOpen, setJoinOpen] = useState(false);
+
   return (
     <section id="about" className="bg-surface py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <span className="inline-block border border-accent text-accent text-xs tracking-wide rounded-full px-4 py-1.5 mb-5">
-          WHO IT'S FOR
+          WHO IT'S FOR.
         </span>
         <h2 className="font-display font-bold text-3xl md:text-4xl">
           Different <span className="text-accent">people</span>, different <span className="text-accent">doors</span>.
@@ -64,6 +69,10 @@ export default function WhoItsFor() {
 
             <a
               href="#"
+              onClick={(event) => {
+                event.preventDefault();
+                setJoinOpen(true);
+              }}
               className="mt-auto mx-auto md:mx-0 text-sm font-medium inline-flex items-center gap-1.5 hover:text-accent transition-colors"
             >
               {card.cta} <span aria-hidden="true">→</span>
@@ -71,6 +80,8 @@ export default function WhoItsFor() {
           </div>
         ))}
       </div>
+
+      {joinOpen && <JoinCommunityModal onClose={() => setJoinOpen(false)} />}
     </section>
   );
 }
